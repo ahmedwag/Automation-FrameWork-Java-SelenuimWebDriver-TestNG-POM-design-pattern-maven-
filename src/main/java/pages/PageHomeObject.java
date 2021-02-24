@@ -15,7 +15,7 @@ public class PageHomeObject extends PageBase {
 	}
 	
 	// this anotation related to page factory 
-	@FindBy(partialLinkText  = "Register")
+	@FindBy(xpath = "/html/body/div[6]/div[1]/div[1]/div[2]/div[1]/ul/li[1]/a")
 	WebElement registerLink;
 
 	@FindBy(partialLinkText  = "Log in")

@@ -19,7 +19,7 @@ public class UserRegisterationTest extends TestBase {
 		homeObject = new PageHomeObject(driver);
 		homeObject.openRegistrationPage();
 		registerationobject = new PageRegisterationObject(driver);
-		registerationobject.userRegistration("ahmed","wag","test720@gmail.com","123456789");
+		registerationobject.userRegistration("ahmed","wag","dfe452@gmail.com","123456789");
 		registerationobject.UserLogOut();
 		
 		
@@ -31,7 +31,7 @@ public class UserRegisterationTest extends TestBase {
 		homeObject = new PageHomeObject(driver);
 		homeObject.openRegistrationPage();
 		registerationobject = new PageRegisterationObject(driver);
-		registerationobject.userRegistration("ahmed","wag","test@","123456789");
+		registerationobject.userRegistration("ahmed","wag","dfe452@gmail.com","123456789");
 		Assert.assertEquals("Wrong email",registerationobject.getEmailErrorMassage());
 		
 	}
@@ -50,7 +50,7 @@ public class UserRegisterationTest extends TestBase {
 		
 		homeObject.openLoginPage();
 		loginObject = new PageLoginObject(driver);
-		loginObject.userLogin("test72@gmail.com","123456789");
+		loginObject.userLogin("dfe452@gmail.com","123456789");
 		Assert.assertEquals("Log out",registerationobject.logoutLink.getText());
 	}
 	
