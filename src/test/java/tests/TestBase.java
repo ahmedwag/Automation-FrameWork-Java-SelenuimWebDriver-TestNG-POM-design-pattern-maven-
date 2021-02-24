@@ -8,7 +8,10 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.phantomjs.PhantomJSDriver;
+import org.openqa.selenium.phantomjs.PhantomJSDriverService;
 import org.openqa.selenium.remote.CapabilityType;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
@@ -57,6 +60,17 @@ public class TestBase extends AbstractTestNGCucumberTests{
 			String driverPath = System.getProperty("user.dir")+"\\drivers\\geckodriver.exe";
 			System.setProperty("webdriver.gecko.driver", driverPath);
 			driver =new FirefoxDriver(firefoxOption());
+		}else if (browserName.equalsIgnoreCase("headless")) {
+			
+			DesiredCapabilities cap = new DesiredCapabilities();
+			cap.setJavascriptEnabled(true);
+			// where is the .exe of the driver
+			cap.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY,
+					System.getProperty("user.dir")+"\\drivers\\phantomjs.exe");
+			String phantomJsArgs[] = {"--web-security=no","--ignore-ssl-errors=yes"};
+			cap.setCapability(PhantomJSDriverService.PHANTOMJS_CLI_ARGS,phantomJsArgs);
+			driver = new PhantomJSDriver(cap);
+			
 		}
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(120, TimeUnit.SECONDS);
