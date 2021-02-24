@@ -1,5 +1,6 @@
- Feature: user Registration
- 	user register to our E-commerce websit
+ 
+  Feature: user Registration
+ 	 user register to our E-commerce websit
  	
  	Scenario Outline: user registeration
  	Given user in home page
