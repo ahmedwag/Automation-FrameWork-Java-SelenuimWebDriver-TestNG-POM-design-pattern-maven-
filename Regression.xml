@@ -1,0 +1,14 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite  name="nopecommerce Regression Suite">
+<parameter name="browser" value="headless-chrome" />
+   <test name="Regesteration Test" preserve-order="false">
+    <classes>
+      <class name="tests.UserRegisterationTestDDTWithJavaFaker"/>
+    </classes>
+  </test>  
+  <!-- <test name="login Test">
+    <classes>
+      <class name="tests.UserLoginTest"/>
+    </classes>
+  </test>  hi -->
+</suite> 
